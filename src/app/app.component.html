@@ -32,19 +32,64 @@
 </div>
 } -->
 
-<h2>Datos de la pelicula</h2>
 
+<!-- Ejemplo con ngIf -->
+
+<!-- <h2>Datos de la pelicula</h2>
+
+<div *ngIf="!peliculas">
+  <img src="https://miro.medium.com/max/882/1*9EBHIOzhE1XfMYoKz1JcsQ.gif" />
+</div>
+
+<div *ngIf="peliculas?.length === 0">
+  <p>No hay peliculas para mostrar</p>
+</div>
+
+<div *ngIf="peliculas && peliculas.length > 0">
+  @for (pelicula of peliculas; track $index) {
+  <div class="contenedor-pelicula">
+    <div style="display: flex; flex-direction: row; gap: 10px;">
+      <div>
+        <img [ngSrc]="pelicula.poster" [priority]="$index===0" width="169" height="250" />
+      </div>
+      <div>
+        <p>{{$index}}) Pelicula : {{pelicula.titulo | uppercase}}</p>
+        <p>Fecha : {{pelicula.fechaLanzamiento | date:"dd-MMMM-yyyy" | uppercase}}</p>
+        <p>Precio : {{pelicula.precio | currency}}</p>
+      </div>
+    </div>
+  </div>
+  }
+</div> -->
+
+<!-- <h2>Datos de la pelicula</h2>
+@if (!peliculas) {
+<img src="loading.gif" />
+}
+@else if (peliculas.length === 0) {
+<div>
+  <p>No hay peliculas para mostrar</p>
+</div>
+}
+@else {
 @for (pelicula of peliculas; track $index) {
 <div class="contenedor-pelicula">
   <div style="display: flex; flex-direction: row; gap: 10px;">
     <div>
-      <img [ngSrc]="pelicula.poster" priority width="169" height="250"/>
+      <img [ngSrc]="pelicula.poster" [priority]="$index===0" width="169" height="250" />
     </div>
     <div>
       <p>{{$index}}) Pelicula : {{pelicula.titulo | uppercase}}</p>
-      <p>Pelicula : {{pelicula.fechaLanzamiento | date:"dd-MMMM-yyyy" | uppercase}}</p>
-      <p>Pelicula : {{pelicula.precio | currency}}</p>
+      <p>Fecha : {{pelicula.fechaLanzamiento | date:"dd-MMMM-yyyy" | uppercase}}</p>
+      <p>Precio : {{pelicula.precio | currency}}</p>
     </div>
   </div>
 </div>
 }
+} -->
+
+<h2>En cines</h2>
+<app-listado-peliculas [peliculas]="peliculasEnCine"></app-listado-peliculas>
+
+<h2>Proximos estrenos</h2>
+<app-listado-peliculas [peliculas]="peliculasProximosEstrenos"></app-listado-peliculas>
